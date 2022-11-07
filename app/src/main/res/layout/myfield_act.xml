@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.yugurs.sui.field.SCWField
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        app:fieldLable="姓名"
+        app:fieldHints="请输入姓名" />
+
+    <com.yugurs.sui.field.SCWField
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        app:fieldLable="字体"
+        app:fieldLableColor="@color/test_color"
+        app:fieldValueColor="@color/test_color"
+        app:fieldSize="16px"
+        app:fieldHints="字体和颜色可改" />
+
+</LinearLayout>

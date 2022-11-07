@@ -1,0 +1,3 @@
+include ':sui_lib'
+include ':app'
+rootProject.name = "SimpleCustomWidget"
