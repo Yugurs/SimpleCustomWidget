@@ -18,5 +18,10 @@
        app:title="姓名"
        />
 
+   <com.yugurs.sui.field.SCWField
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/dp_50"
+       app:fieldValue="123456"/>
+
 
 </LinearLayout>

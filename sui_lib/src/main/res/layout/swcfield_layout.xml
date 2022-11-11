@@ -24,8 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/dp_10"
-            android:gravity="right|center_vertical"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:textCursorDrawable="@null"
+            android:text="1231"/>
 
     </LinearLayout>
 

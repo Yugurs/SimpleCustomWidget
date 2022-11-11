@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.InputType;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -47,6 +48,9 @@ public class SCWField extends LinearLayout {
             if (value != ""){
                 value(value);
             }
+
+            int gravity = attributes.getInteger(R.styleable.SCWField_valueGravity, Gravity.RIGHT|Gravity.CENTER_VERTICAL);
+            gravity(gravity);
 
             float fieldSize = attributes.getDimension(R.styleable.SCWField_fieldSize, 14);
             size(fieldSize);
@@ -100,6 +104,10 @@ public class SCWField extends LinearLayout {
 
     public void value(String value){
          mEditText.setText(value);
+    }
+
+    public void gravity(int gravity){
+        mEditText.setGravity(gravity);
     }
 
     public String getValue(){

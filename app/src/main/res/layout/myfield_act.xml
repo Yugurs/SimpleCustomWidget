@@ -20,4 +20,11 @@
         app:fieldSize="16px"
         app:fieldHints="字体和颜色可改" />
 
+    <com.yugurs.sui.field.SCWField
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        app:fieldLable="value位置"
+        app:fieldHints="如果位置设置无效，请检查项目style"
+        app:valueGravity="right|center_vertical"/>
+
 </LinearLayout>
