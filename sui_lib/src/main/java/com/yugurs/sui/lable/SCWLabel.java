@@ -1,6 +1,5 @@
 package com.yugurs.sui.lable;
 
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -15,47 +14,46 @@ import androidx.core.content.ContextCompat;
 
 import com.yugurs.sui.R;
 
-public class SCWLable extends LinearLayout {
+public class SCWLabel extends LinearLayout {
 
     private View vLeft;
-    private TextView tvLable;
+    private TextView tvLabel;
     private TextView tvRight;
 
-    public SCWLable(Context context) {
+    public SCWLabel(Context context) {
         super(context);
     }
 
-    public SCWLable(Context context, @Nullable AttributeSet attrs) {
+    public SCWLabel(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
-        LayoutInflater.from(context).inflate(R.layout.scwlable_layout, this, true);
+        LayoutInflater.from(context).inflate(R.layout.scwlabel_layout, this, true);
         vLeft   = findViewById(R.id.v_left);
-        tvLable = findViewById(R.id.tv_lable);
+        tvLabel = findViewById(R.id.tv_label);
         tvRight = findViewById(R.id.tv_right);
 
-        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.SCWLable);
+        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.SCWLabel);
         if (attributes != null){
-            int leftColor = attributes.getColor(R.styleable.SCWLable_vColor, ContextCompat.getColor(context, R.color.test_color));
+            int leftColor = attributes.getColor(R.styleable.SCWLabel_vColor, ContextCompat.getColor(context, R.color.test_color));
             leftColor(leftColor);
 
-            String lable = attributes.getString(R.styleable.SCWLable_title);
-            Log.e("lable", lable);
+            String lable = attributes.getString(R.styleable.SCWLabel_title);
             if (lable != "") {
                 lable(lable);
             }
 
-            int lableColor = attributes.getColor(R.styleable.SCWLable_titleColor, ContextCompat.getColor(context, R.color.m_text_color));
+            int lableColor = attributes.getColor(R.styleable.SCWLabel_titleColor, ContextCompat.getColor(context, R.color.m_text_color));
             lableColor(lableColor);
 
-            float lableSize = attributes.getDimension(R.styleable.SCWLable_titleSize, 16);
+            float lableSize = attributes.getDimension(R.styleable.SCWLabel_titleSize, 16);
             lableSize(lableSize);
 
-            String right = attributes.getString(R.styleable.SCWLable_rightText);
+            String right = attributes.getString(R.styleable.SCWLabel_rightText);
             if (right != ""){
                 right(right);
             }
 
-            int rightColor = attributes.getColor(R.styleable.SCWLable_rightColor, ContextCompat.getColor(context, R.color.test_color));
+            int rightColor = attributes.getColor(R.styleable.SCWLabel_rightColor, ContextCompat.getColor(context, R.color.test_color));
             rightColor(rightColor);
 
         }
@@ -69,15 +67,15 @@ public class SCWLable extends LinearLayout {
     }
 
     public void lable(String str){
-        tvLable.setText(str);
+        tvLabel.setText(str);
     }
 
     public void lableColor(int color){
-        tvLable.setTextColor(color);
+        tvLabel.setTextColor(color);
     }
 
     public void lableSize(float size){
-        tvLable.setTextSize(size);
+        tvLabel.setTextSize(size);
     }
 
     public void right(String str){

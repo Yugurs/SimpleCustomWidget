@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="SCWField">
-        <attr name="fieldLableColor" format="color" />
-        <attr name="fieldLable"      format="string" />
+        <attr name="fieldEnable"     format="boolean" />
+        <attr name="fieldLabelColor" format="color" />
+        <attr name="fieldLabel"      format="string" />
         <attr name="fieldValueColor" format="color" />
         <attr name="fieldValue"      format="string" localization="suggested" />
         <attr name="fieldSize"       format="dimension" />
@@ -42,8 +43,9 @@
             <!-- Push object to the end of its container, not changing its size. -->
             <flag name="end" value="0x00800005" />
         </attr>
-        <attr name="fieldHintColor"  format="color" />
-        <attr name="fieldHints"      format="string" />
+        <attr name="fieldHintColor"  format="color"   />
+        <attr name="fieldHints"      format="string"  />
+        <attr name="fieldLines"      format="integer" />
         <attr name="inputType">
             <!-- There is no content type.  The text is not editable. -->
             <flag name="none" value="0x00000000" />
@@ -180,25 +182,37 @@
         </attr>
     </declare-styleable>
 
-
-    <declare-styleable name="SCWCell">
-        <attr format="string"            name="celllable"       />
-        <attr format="reference|color"   name="celllableColor"  />
-        <attr format="dimension"         name="fontsize"        />
-        <attr format="string"            name="cellhints"       />
-        <attr format="string"            name="cellvalue"       />
-        <attr format="reference|color"   name="cellvalueColor"  />
-        <attr format="integer"           name="celllines"       />
-        <attr format="reference"         name="cellPic"         />
+    <declare-styleable name="SCWTextArea">
+        <attr name="taEnable"     format="boolean" />
+        <attr name="taLabelColor" format="color" />
+        <attr name="taLabel"      format="string" />
+        <attr name="taValueColor" format="color" />
+        <attr name="taValue"      format="string" localization="suggested" />
+        <attr name="taSize"       format="dimension" />
+        <attr name="taHintColor"  format="color" />
+        <attr name="taHints"      format="string" />
     </declare-styleable>
 
-    <declare-styleable name="SCWLable">
-        <attr format="reference|color" name="vColor" />
-        <attr format="string"          name="title"  />
-        <attr format="reference|color" name="titleColor" />
-        <attr format="dimension"       name="titleSize" />
-        <attr format="string"          name="rightText" />
-        <attr format="reference|color" name="rightColor" />
+
+    <declare-styleable name="SCWCell">
+        <attr name="cellLabel"      format="string"          />
+        <attr name="cellLabelColor" format="reference|color" />
+        <attr name="fontSize"       format="dimension"       />
+        <attr name="cellHints"      format="string"          />
+        <attr name="cellValue"      format="string"          />
+        <attr name="cellValueColor" format="reference|color" />
+        <attr name="cellLines"      format="integer"         />
+        <attr name="cellPic"        format="reference"       />
+    </declare-styleable>
+
+
+    <declare-styleable name="SCWLabel">
+        <attr name="vColor"      format="reference|color"  />
+        <attr name="title"       format="string"           />
+        <attr name="titleColor"  format="reference|color"  />
+        <attr name="titleSize"   format="dimension"        />
+        <attr name="rightText"   format="string"           />
+        <attr name="rightColor"  format="reference|color"  />
     </declare-styleable>
 
 </resources>

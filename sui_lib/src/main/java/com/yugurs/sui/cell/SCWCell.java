@@ -8,15 +8,13 @@ import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-
 import com.yugurs.sui.R;
 
 public class SCWCell extends LinearLayout {
 
-    private TextView tvLable;
+    private TextView tvLabel;
     private TextView tvValue;
     private ImageView ivClick;
 
@@ -28,40 +26,38 @@ public class SCWCell extends LinearLayout {
         super(context, attrs);
 
         LayoutInflater.from(context).inflate(R.layout.scwcell_layout, this, true);
-        tvLable = findViewById(R.id.tv_lable);
+        tvLabel = findViewById(R.id.tv_label);
         tvValue = findViewById(R.id.tv_value);
         ivClick = findViewById(R.id.iv_click);
 
-
         TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.SCWCell);
         if (attributes != null){
-            String sLable = attributes.getString(R.styleable.SCWCell_celllable);
-            if (sLable != ""){
-                cellLable(sLable);
+            String sLabel = attributes.getString(R.styleable.SCWCell_cellLabel);
+            if (sLabel != ""){
+                cellLabel(sLabel);
             }
 
-            int lableColor = attributes.getColor(R.styleable.SCWCell_celllableColor, ContextCompat.getColor(context, R.color.m_text_color));
-            lableColor(lableColor);
+            int labelColor = attributes.getColor(R.styleable.SCWCell_cellLabelColor, ContextCompat.getColor(context, R.color.m_text_color));
+            labelColor(labelColor);
 
-            float fontSize = attributes.getDimension(R.styleable.SCWCell_fontsize, 14);
+            float fontSize = attributes.getDimension(R.styleable.SCWCell_fontSize, 14);
             fontSize(fontSize);
 
-
-            int valueColor = attributes.getColor(R.styleable.SCWCell_cellvalueColor, ContextCompat.getColor(context, R.color.m_text_value_color));
+            int valueColor = attributes.getColor(R.styleable.SCWCell_cellValueColor, ContextCompat.getColor(context, R.color.m_text_value_color));
             valueColor(valueColor);
 
 
-            String cellValue = attributes.getString(R.styleable.SCWCell_cellvalue);
+            String cellValue = attributes.getString(R.styleable.SCWCell_cellValue);
             if (cellValue != ""){
                 cellValue(cellValue);
             }
 
-            String cellHints = attributes.getString(R.styleable.SCWCell_cellhints);
+            String cellHints = attributes.getString(R.styleable.SCWCell_cellHints);
             if (cellHints != ""){
                 cellHints(cellHints);
             }
 
-            int lines = attributes.getInt(R.styleable.SCWCell_celllines, 0);
+            int lines = attributes.getInt(R.styleable.SCWCell_cellLines, 0);
             if (lines > 0){
                 cellLines(lines);
             }
@@ -82,17 +78,17 @@ public class SCWCell extends LinearLayout {
         }
     }
 
-    public void lableColor(int color){
-        tvLable.setTextColor(color);
+    public void labelColor(int color){
+        tvLabel.setTextColor(color);
     }
 
     public void fontSize(float size){
-        tvLable.setTextSize(size);
+        tvLabel.setTextSize(size);
         tvValue.setTextSize(size);
     }
 
-    public void cellLable(String str){
-        tvLable.setText(str);
+    public void cellLabel(String str){
+        tvLabel.setText(str);
     }
 
     public void valueColor(int color){

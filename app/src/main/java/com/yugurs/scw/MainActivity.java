@@ -4,13 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
 
 import com.yugurs.scw.cell.MyCellAct;
 import com.yugurs.scw.databinding.ActivityMainBinding;
 import com.yugurs.scw.field.MyFieldAct;
-import com.yugurs.scw.lable.MyLableAct;
+import com.yugurs.scw.label.MyLabelAct;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        binding.llLable.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, MyLableAct.class);
+        binding.llLabel.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MyLabelAct.class);
             startActivity(intent);
         });
 

@@ -3,36 +3,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#ffffff"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.yugurs.sui.cell.SCWCell
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
-        app:celllable="姓名"
-        app:cellhints="是可以有提示字符的" />
+        app:cellLabel="姓名"
+        app:cellHints="是可以有提示字符的" />
 
     <com.yugurs.sui.cell.SCWCell
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
-        app:celllable="昵称"
-        app:cellhints="字体大小用px单位"
-        app:fontsize="16px" />
+        app:cellLabel="昵称"
+        app:cellHints="字体大小用px单位"
+        app:fontSize="16px" />
 
     <com.yugurs.sui.cell.SCWCell
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
-        app:celllableColor="@color/colorPrimary"
-        app:celllable="地址"
-        app:cellvalueColor="#007AFF"
-        app:cellvalue="字体是可以改颜色的" />
+        app:cellLabelColor="@color/colorPrimary"
+        app:cellLabel="地址"
+        app:cellValueColor="#007AFF"
+        app:cellValue="字体是可以改颜色的" />
 
     <com.yugurs.sui.cell.SCWCell
         android:id="@+id/cell"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
-        app:celllable="点击项"
-        app:cellvalue="可以添加图标"
+        app:cellLabel="点击项"
+        app:cellValue="可以添加图标"
         app:cellPic="@mipmap/ic_right3" />
+
+    <com.yugurs.sui.cell.SCWCell
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        app:cellLines="2"
+        app:cellLabel="超越位数"
+        app:cellValue="有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多" />
 
 
 </LinearLayout>

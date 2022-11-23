@@ -12,6 +12,6 @@
 ### Step 2.
 ``` js
    dependencies {
-	   implementation 'com.github.Yugurs:SCW:0.0.4'
+	   implementation 'com.github.Yugurs:SCW:0.0.5'
    }
 ``` 

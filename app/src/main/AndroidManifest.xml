@@ -23,8 +23,8 @@
         <activity android:name=".field.MyFieldAct"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".lable.MyLableAct"
-            android:screenOrientation="portrait" />
+        <activity android:name=".label.MyLabelAct"
+            android:screenOrientation="portrait"/>
 
     </application>
 

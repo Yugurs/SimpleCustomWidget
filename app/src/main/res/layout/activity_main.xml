@@ -54,7 +54,7 @@
            </LinearLayout>
 
            <LinearLayout
-               android:id="@+id/ll_lable"
+               android:id="@+id/ll_label"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_columnWeight="1"
@@ -70,7 +70,7 @@
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:gravity="center"
-                   android:text="lable" />
+                   android:text="label" />
 
            </LinearLayout>
 

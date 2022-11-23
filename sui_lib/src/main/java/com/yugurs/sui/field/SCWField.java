@@ -3,12 +3,12 @@ package com.yugurs.sui.field;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.ContextCompat;
@@ -28,20 +28,23 @@ public class SCWField extends LinearLayout {
         super(context, attrs);
         // 加载布局
         LayoutInflater.from(context).inflate(R.layout.swcfield_layout, this, true);
-        mTextView = findViewById(R.id.tv_lable);
+        mTextView = findViewById(R.id.tv_label);
         mEditText = findViewById(R.id.edt_value);
 
         TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.SCWField);
         if (attributes != null){
-            int lableColor = attributes.getColor(R.styleable.SCWField_fieldLableColor, ContextCompat.getColor(context, R.color.m_text_color));
+            boolean enable = attributes.getBoolean(R.styleable.SCWField_fieldEnable, true);
+            enable(enable);
+
+            int lableColor = attributes.getColor(R.styleable.SCWField_fieldLabelColor, ContextCompat.getColor(context, R.color.m_text_color));
             lableColor(lableColor);
 
-            String lable = attributes.getString(R.styleable.SCWField_fieldLable);
+            String lable = attributes.getString(R.styleable.SCWField_fieldLabel);
             if (lable != ""){
                 lable(lable);
             }
 
-            int valueColor = attributes.getColor(R.styleable.SCWField_fieldLableColor, ContextCompat.getColor(context, R.color.m_text_color));
+            int valueColor = attributes.getColor(R.styleable.SCWField_fieldLabelColor, ContextCompat.getColor(context, R.color.m_text_color));
             valueColor(valueColor);
 
             String value = attributes.getString(R.styleable.SCWField_fieldValue);
@@ -68,9 +71,18 @@ public class SCWField extends LinearLayout {
                 inputType(inputType);
             }
 
+            int lines = attributes.getInt(R.styleable.SCWField_fieldLines, 0);
+            if (lines > 0){
+                fieldLines(lines);
+            }
+
             attributes.recycle();
         }
 
+    }
+
+    public void enable(boolean able){
+        mEditText.setEnabled(able);
     }
 
     public void lableColor(int color){
@@ -96,6 +108,11 @@ public class SCWField extends LinearLayout {
 
     public void inputType(int type){
         mEditText.setInputType(type);
+    }
+
+    public void fieldLines(int ilines){
+        mEditText.setLines(ilines);
+        mEditText.setEllipsize(TextUtils.TruncateAt.END);
     }
 
     public void lable(String slable){

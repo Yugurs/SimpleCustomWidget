@@ -3,6 +3,7 @@
 
     <color name="m_text_color">#242424</color>
     <color name="m_text_value_color">#909090</color>
+    <color name="m_textarea_color">#F7F7F8</color>
 
     <color name="test_color">#007AFF</color>
     <color name="strange_color">#669933</color>

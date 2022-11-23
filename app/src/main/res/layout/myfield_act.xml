@@ -3,28 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#ffffff"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.yugurs.sui.field.SCWField
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
-        app:fieldLable="姓名"
+        android:layout_height="wrap_content"
+        app:fieldLabel="姓名"
         app:fieldHints="请输入姓名" />
 
     <com.yugurs.sui.field.SCWField
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
-        app:fieldLable="字体"
-        app:fieldLableColor="@color/test_color"
+        android:layout_height="wrap_content"
+        app:fieldLabel="字体"
+        app:fieldLabelColor="@color/test_color"
         app:fieldValueColor="@color/test_color"
         app:fieldSize="16px"
         app:fieldHints="字体和颜色可改" />
 
     <com.yugurs.sui.field.SCWField
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
-        app:fieldLable="value位置"
+        android:layout_height="wrap_content"
+        app:fieldLabel="value位置"
         app:fieldHints="如果位置设置无效，请检查项目style"
         app:valueGravity="right|center_vertical"/>
+
+
+    <com.yugurs.sui.field.SCWTextArea
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:taLabel="备注："
+        app:taHints="输入备注,可以修改颜色字体和enable" />
 
 </LinearLayout>

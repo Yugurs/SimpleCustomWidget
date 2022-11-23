@@ -7,12 +7,13 @@
 
    <com.yugurs.sui.cell.SCWCell
        android:layout_width="match_parent"
-       android:layout_height="@dimen/dp_60"
-       app:celllable="123132"
-       app:cellvalue="151656516"
-       app:cellvalueColor="#468465"/>
+       android:layout_height="wrap_content"
+       app:cellLabel="123132"
+       app:cellValue="4654656465465646546564654656465465646546564654656465465646546564654656465465646546564654656"
+       app:cellValueColor="#468465"
+       app:cellLines="2"/>
 
-   <com.yugurs.sui.lable.SCWLable
+   <com.yugurs.sui.lable.SCWLabel
        android:layout_width="match_parent"
        android:layout_height="@dimen/dp_50"
        app:title="姓名"
