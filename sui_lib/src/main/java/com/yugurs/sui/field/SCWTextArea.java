@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.ContextCompat;
+import androidx.databinding.BindingAdapter;
+import androidx.databinding.InverseBindingAdapter;
+
 import com.yugurs.sui.R;
 
 public class SCWTextArea extends LinearLayout {
@@ -102,5 +105,16 @@ public class SCWTextArea extends LinearLayout {
         return mEditText.getText().toString().trim();
     }
 
+    @BindingAdapter("app:taValue")
+    public static void setBindValue(AppCompatEditText appEdt, String value){
+        appEdt.setText(value);
+        //fieldValueChanged.onChange();
+    }
+
+    //, event = "app:fieldValueChanged"
+    @InverseBindingAdapter(attribute = "app:taValue")
+    public static String getBindValue(AppCompatEditText appEdt){
+        return appEdt.getText().toString().trim();
+    }
 }
 

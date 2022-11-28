@@ -7,11 +7,16 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.ContextCompat;
+import androidx.databinding.BindingAdapter;
+import androidx.databinding.InverseBindingAdapter;
+import androidx.databinding.InverseBindingListener;
+import androidx.databinding.InverseBindingMethod;
 
 import com.yugurs.sui.R;
 
@@ -19,6 +24,8 @@ public class SCWField extends LinearLayout {
 
     private TextView mTextView;
     private AppCompatEditText mEditText;
+
+    //public static InverseBindingListener fieldValueChanged;
 
     public SCWField(Context context) {
         super(context);
@@ -77,6 +84,7 @@ public class SCWField extends LinearLayout {
             }
 
             attributes.recycle();
+
         }
 
     }
@@ -119,8 +127,9 @@ public class SCWField extends LinearLayout {
         mTextView.setText(slable);
     }
 
+
     public void value(String value){
-         mEditText.setText(value);
+        mEditText.setText(value);
     }
 
     public void gravity(int gravity){
@@ -130,6 +139,28 @@ public class SCWField extends LinearLayout {
     public String getValue(){
         return mEditText.getText().toString().trim();
     }
+
+    @BindingAdapter("app:fieldValue")
+    public static void setBindValue(AppCompatEditText appEdt, String value){
+        appEdt.setText(value);
+        //fieldValueChanged.onChange();
+    }
+
+    //, event = "app:fieldValueChanged"
+    @InverseBindingAdapter(attribute = "app:fieldValue")
+    public static String getBindValue(AppCompatEditText appEdt){
+        return appEdt.getText().toString().trim();
+    }
+
+//    @BindingAdapter(value = {"app:fieldValueChanged"}, requireAll = false)
+//    public static void setListeners(AppCompatEditText appEdt, final InverseBindingListener attrChange){
+//        if (attrChange == null){
+//
+//        } else {
+//            fieldValueChanged = attrChange;
+//        }
+//    }
+
 
 }
 

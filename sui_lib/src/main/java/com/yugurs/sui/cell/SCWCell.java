@@ -9,7 +9,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.ContextCompat;
+import androidx.databinding.BindingAdapter;
+import androidx.databinding.InverseBindingAdapter;
+
 import com.yugurs.sui.R;
 
 public class SCWCell extends LinearLayout {
@@ -69,6 +73,7 @@ public class SCWCell extends LinearLayout {
         }
 
         attributes.recycle();
+
     }
 
     public void setOnClickListener(OnClickListener onClickListener) {
@@ -117,5 +122,16 @@ public class SCWCell extends LinearLayout {
         return tvValue.getText().toString();
     }
 
+    @BindingAdapter("app:cellValue")
+    public static void setBindValue(AppCompatEditText appEdt, String value){
+        appEdt.setText(value);
+        //fieldValueChanged.onChange();
+    }
+
+    //, event = "app:fieldValueChanged"
+    @InverseBindingAdapter(attribute = "app:cellValue")
+    public static String getBindValue(AppCompatEditText appEdt){
+        return appEdt.getText().toString().trim();
+    }
 }
 

@@ -17,14 +17,16 @@
             android:layout_width="@dimen/dp_120"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
             android:layout_gravity="center_vertical" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/edt_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="@dimen/dp_49"
+            android:minHeight="@dimen/dp_20"
             android:layout_marginRight="@dimen/dp_10"
+            android:layout_gravity="center_vertical"
             android:background="@android:color/transparent" />
 
     </LinearLayout>
