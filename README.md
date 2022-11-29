@@ -15,3 +15,7 @@
 	   implementation 'com.github.Yugurs:SCW:0.0.6'
    }
 ``` 
+
+``` js
+    这次添加双向绑定功能
+```
