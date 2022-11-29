@@ -1,46 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#ffffff"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="stuVm"
+            type="com.yugurs.scw.model.Students" />
+    </data>
 
-    <com.yugurs.sui.cell.SCWCell
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
-        app:cellLabel="姓名"
-        app:cellHints="是可以有提示字符的" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#ffffff">
 
-    <com.yugurs.sui.cell.SCWCell
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
-        app:cellLabel="昵称"
-        app:cellHints="字体大小用px单位"
-        app:fontSize="16px" />
+        <com.yugurs.sui.cell.SCWCell
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            app:cellLabel="姓名"
+            app:cellHints="是可以有提示字符的" />
 
-    <com.yugurs.sui.cell.SCWCell
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
-        app:cellLabelColor="@color/colorPrimary"
-        app:cellLabel="地址"
-        app:cellValueColor="#007AFF"
-        app:cellValue="字体是可以改颜色的" />
+        <com.yugurs.sui.cell.SCWCell
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            app:cellLabel="昵称"
+            app:cellHints="字体大小用px单位"
+            app:fontSize="16px" />
 
-    <com.yugurs.sui.cell.SCWCell
-        android:id="@+id/cell"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
-        app:cellLabel="点击项"
-        app:cellValue="可以添加图标"
-        app:cellPic="@mipmap/ic_right3" />
+        <com.yugurs.sui.cell.SCWCell
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            app:cellLabelColor="@color/colorPrimary"
+            app:cellLabel="地址"
+            app:cellValueColor="#007AFF"
+            app:cellValue="字体是可以改颜色的" />
 
-    <com.yugurs.sui.cell.SCWCell
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
-        app:cellLines="2"
-        app:cellLabel="超越位数"
-        app:cellValue="有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多" />
+        <com.yugurs.sui.cell.SCWCell
+            android:id="@+id/cell"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            app:cellLabel="点击项"
+            app:cellValue="可以添加图标"
+            app:cellPic="@mipmap/ic_right3" />
 
+        <com.yugurs.sui.cell.SCWCell
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            app:cellLines="2"
+            app:cellLabel="超越位数"
+            app:cellValue="有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多有很多" />
 
-</LinearLayout>
+        <com.yugurs.sui.cell.SCWCell
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            app:cellLabel="姓名绑定"
+            app:cellValue="@{stuVm.name}" />
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试单向绑定" />
+
+    </LinearLayout>
+
+</layout>

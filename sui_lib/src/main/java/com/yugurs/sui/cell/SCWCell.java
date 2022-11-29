@@ -13,9 +13,13 @@ import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.InverseBindingAdapter;
+import androidx.databinding.InverseBindingMethod;
+import androidx.databinding.InverseBindingMethods;
 
 import com.yugurs.sui.R;
+import com.yugurs.sui.field.SCWTextArea;
 
+@InverseBindingMethods({@InverseBindingMethod(type = SCWCell.class, attribute = "setCellValue")})
 public class SCWCell extends LinearLayout {
 
     private TextView tvLabel;
@@ -122,16 +126,11 @@ public class SCWCell extends LinearLayout {
         return tvValue.getText().toString();
     }
 
-    @BindingAdapter("app:cellValue")
-    public static void setBindValue(AppCompatEditText appEdt, String value){
-        appEdt.setText(value);
-        //fieldValueChanged.onChange();
+    @BindingAdapter("cellValue")
+    public static void setCellValue(SCWCell scwCell, String value){
+        scwCell.tvValue.setText(value);
     }
 
-    //, event = "app:fieldValueChanged"
-    @InverseBindingAdapter(attribute = "app:cellValue")
-    public static String getBindValue(AppCompatEditText appEdt){
-        return appEdt.getText().toString().trim();
-    }
+
 }
 

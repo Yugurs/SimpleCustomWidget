@@ -2,6 +2,8 @@ package com.yugurs.sui.field;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
@@ -11,9 +13,13 @@ import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.InverseBindingAdapter;
+import androidx.databinding.InverseBindingListener;
+import androidx.databinding.InverseBindingMethod;
+import androidx.databinding.InverseBindingMethods;
 
 import com.yugurs.sui.R;
 
+@InverseBindingMethods({@InverseBindingMethod(type = SCWTextArea.class, attribute = "setTaValue", event = "taValueAttrChanged", method = "getTaValue")})
 public class SCWTextArea extends LinearLayout {
 
     private TextView mTextView;
@@ -105,16 +111,40 @@ public class SCWTextArea extends LinearLayout {
         return mEditText.getText().toString().trim();
     }
 
-    @BindingAdapter("app:taValue")
-    public static void setBindValue(AppCompatEditText appEdt, String value){
-        appEdt.setText(value);
-        //fieldValueChanged.onChange();
+    @BindingAdapter("taValue")
+    public static void setTaValue(SCWTextArea scwTextArea, String str){
+        scwTextArea.mEditText.setText(str);
     }
 
-    //, event = "app:fieldValueChanged"
-    @InverseBindingAdapter(attribute = "app:taValue")
-    public static String getBindValue(AppCompatEditText appEdt){
-        return appEdt.getText().toString().trim();
+    @InverseBindingAdapter(attribute = "taValue")
+    public static String getTaValue(SCWTextArea scwTextArea){
+        return scwTextArea.mEditText.getText().toString().trim();
     }
+
+    @BindingAdapter(value = {"taValueAttrChanged"}, requireAll = false)
+    public static void setListeners(SCWTextArea scwTextArea, final InverseBindingListener attrChange){
+        if (attrChange == null){
+
+        } else {
+            scwTextArea.mEditText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    attrChange.onChange();
+                }
+            });
+
+        }
+    }
+
 }
 

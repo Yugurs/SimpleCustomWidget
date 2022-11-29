@@ -1,38 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#ffffff"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="stuVm"
+            type="com.yugurs.scw.model.Students" />
+    </data>
 
-    <com.yugurs.sui.field.SCWField
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:fieldLabel="姓名"
-        app:fieldHints="请输入姓名" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#ffffff" >
 
-    <com.yugurs.sui.field.SCWField
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:fieldLabel="字体"
-        app:fieldLabelColor="@color/test_color"
-        app:fieldValueColor="@color/test_color"
-        app:fieldSize="16px"
-        app:fieldHints="字体和颜色可改" />
+        <com.yugurs.sui.field.SCWField
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fieldLabel="姓名"
+            app:fieldHints="请输入姓名" />
 
-    <com.yugurs.sui.field.SCWField
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:fieldLabel="value位置"
-        app:fieldHints="如果位置设置无效，请检查项目style"
-        app:valueGravity="right|center_vertical"/>
+        <com.yugurs.sui.field.SCWField
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fieldLabel="字体"
+            app:fieldLabelColor="@color/test_color"
+            app:fieldValueColor="@color/test_color"
+            app:fieldSize="16px"
+            app:fieldHints="字体和颜色可改" />
+
+        <com.yugurs.sui.field.SCWField
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fieldLabel="value位置"
+            app:fieldHints="如果位置设置无效，请检查项目style"
+            app:valueGravity="right|center_vertical"/>
+
+        <com.yugurs.sui.field.SCWField
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fieldLabel="学生姓名"
+            app:fieldValue="@={stuVm.name}" />
+
+        <com.yugurs.sui.field.SCWField
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fieldLabel="学生年龄"
+            app:fieldValue="@={stuVm.age}" />
+
+        <com.yugurs.sui.field.SCWTextArea
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:taLabel="备注："
+            app:taHints="输入备注,可以修改颜色字体和enable,也支持双向绑定" />
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试双向绑定" />
+
+    </LinearLayout>
 
 
-    <com.yugurs.sui.field.SCWTextArea
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:taLabel="备注："
-        app:taHints="输入备注,可以修改颜色字体和enable" />
 
-</LinearLayout>
+</layout>
+

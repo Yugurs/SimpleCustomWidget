@@ -2,9 +2,12 @@ package com.yugurs.sui.field;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.widget.EditText;
@@ -17,9 +20,11 @@ import androidx.databinding.BindingAdapter;
 import androidx.databinding.InverseBindingAdapter;
 import androidx.databinding.InverseBindingListener;
 import androidx.databinding.InverseBindingMethod;
+import androidx.databinding.InverseBindingMethods;
 
 import com.yugurs.sui.R;
 
+@InverseBindingMethods({@InverseBindingMethod(type = SCWField.class, attribute = "setFieldValue", event = "fieldValueAttrChanged", method = "getFieldValue")})
 public class SCWField extends LinearLayout {
 
     private TextView mTextView;
@@ -136,30 +141,49 @@ public class SCWField extends LinearLayout {
         mEditText.setGravity(gravity);
     }
 
+
     public String getValue(){
         return mEditText.getText().toString().trim();
     }
 
-    @BindingAdapter("app:fieldValue")
-    public static void setBindValue(AppCompatEditText appEdt, String value){
-        appEdt.setText(value);
-        //fieldValueChanged.onChange();
+    @BindingAdapter("fieldValue")
+    public static void setFieldValue(SCWField scwField, String str){
+        scwField.mEditText.setText(str);
     }
 
-    //, event = "app:fieldValueChanged"
-    @InverseBindingAdapter(attribute = "app:fieldValue")
-    public static String getBindValue(AppCompatEditText appEdt){
-        return appEdt.getText().toString().trim();
+    @InverseBindingAdapter(attribute = "fieldValue")
+    public static String getFieldValue(SCWField scwField){
+        return scwField.mEditText.getText().toString().trim();
     }
 
-//    @BindingAdapter(value = {"app:fieldValueChanged"}, requireAll = false)
-//    public static void setListeners(AppCompatEditText appEdt, final InverseBindingListener attrChange){
-//        if (attrChange == null){
+    @BindingAdapter(value = {"fieldValueAttrChanged"}, requireAll = false)
+    public static void setListeners(SCWField scwField, final InverseBindingListener attrChange){
+        if (attrChange == null){
+
+        } else {
+            scwField.mEditText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    //scwField.mEditText.setText(s.toString());
+                    attrChange.onChange();
+//                    if (!TextUtils.equals(getFieldValue(scwField), s.toString()) ){
 //
-//        } else {
-//            fieldValueChanged = attrChange;
-//        }
-//    }
+//                    }
+                }
+            });
+
+        }
+    }
 
 
 }

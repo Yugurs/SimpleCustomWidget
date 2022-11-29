@@ -38,6 +38,8 @@ android {
         dataBinding true
     }
 
+    buildFeatures.dataBinding = true
+
 }
 
 dependencies {

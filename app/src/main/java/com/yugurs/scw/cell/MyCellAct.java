@@ -5,6 +5,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.yugurs.scw.databinding.MycellActBinding;
+import com.yugurs.scw.model.Students;
 
 public class MyCellAct extends AppCompatActivity {
 
@@ -19,6 +20,14 @@ public class MyCellAct extends AppCompatActivity {
 
         binding.cell.setOnClickListener(v -> {
             Toast.makeText(getApplicationContext(), "点条路你走", Toast.LENGTH_SHORT).show();
+        });
+
+
+        Students students = new Students();
+
+        binding.btnTest.setOnClickListener(v -> {
+            students.setName("李QQ");
+            binding.setStuVm(students);
         });
 
     }
